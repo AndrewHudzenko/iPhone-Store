@@ -1,10 +1,10 @@
 package com.app.phoneshop.repository;
 
-import com.app.phoneshop.model.Product;
+import com.app.phoneshop.model.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ProductRepository extends JpaRepository<Product, Long> {
-    Product findProductById(Long id);
+public interface RoleRepository extends JpaRepository<Role, Long> {
+    Role getRoleByRoleName(Role.RoleName roleName);
 }

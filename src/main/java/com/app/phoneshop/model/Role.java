@@ -24,9 +24,7 @@ public class Role {
     @Getter
     @AllArgsConstructor
     public enum RoleName {
-        MANAGER("MANAGER"),
-        CLIENT("CLIENT");
-
-        private final String role;
+        MANAGER,
+        CLIENT;
     }
 }

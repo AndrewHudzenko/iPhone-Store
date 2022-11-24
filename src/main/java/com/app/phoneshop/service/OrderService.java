@@ -1,13 +1,13 @@
 package com.app.phoneshop.service;
 
 import com.app.phoneshop.model.Order;
+import com.app.phoneshop.model.ShoppingCart;
 import com.app.phoneshop.model.User;
-import org.springframework.stereotype.Service;
+
 import java.util.List;
 
-@Service
 public interface OrderService {
-    Order completeOrder(Order order);
+    Order completeOrder(ShoppingCart shoppingCart);
 
     void removeOrder(Long id);
 
