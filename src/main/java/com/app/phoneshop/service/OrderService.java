@@ -13,4 +13,5 @@ public interface OrderService {
 
     List<Order> getOrdersHistory(User user);
 
+    void isOrderPaid(Order order);
 }
