@@ -18,7 +18,6 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         this.shoppingCartRepository = shoppingCartRepository;
     }
 
-
     @Override
     public void addProduct(Product inputProduct, User user) {
         Product product = new Product();

@@ -36,13 +36,14 @@ public class ShoppingCartController {
     }
 
     @PutMapping("/products")
-    public void addToCart(Authentication auth, @RequestParam Long productId) {
+    public String addToCart(Authentication auth, @RequestParam Long productId) {
         UserDetails details = (UserDetails) auth.getPrincipal();
         String email = details.getUsername();
         User user = userService.findByEmail(email).orElseThrow(
                 () -> new RuntimeException("User with email " + email + " not found"));
         Product product = productService.getById(productId);
         shoppingCartService.addProduct(product, user);
+        return "Your product was added successfully";
     }
 
     @GetMapping("/by-user")
