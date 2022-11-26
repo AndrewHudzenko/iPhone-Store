@@ -3,7 +3,8 @@
 ## 🚀 Description
 This is a simple version of the iPhone store app written on Spring Boot. \
 You can send various HTTP requests(GET, POST, PUT, DELETE) \
-to add or receive some info.
+to add or receive some info. \
+The app also manages risk and automatically deletes unpaid orders 10 minutes after they are created.
 
 ## 🚀 Project structure
 **The project has an N-Tier Architecture**
@@ -16,6 +17,7 @@ to add or receive some info.
 - Registration
 - Authentication
 - Login / Logout
+- Manage risk
 - Set role for each user
 - MANAGER can create and delete products
 - CLIENT can buy a products
