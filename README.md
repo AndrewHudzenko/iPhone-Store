@@ -48,6 +48,7 @@ The app also manages risk and automatically deletes unpaid orders 10 minutes aft
     db.url=YOUR_URL
     db.user=YOUR_USERNAME
     db.password=YOUR_PASSWORD
+    ...
 ```
 5. Create the necessary name of DB
 6. Run project
