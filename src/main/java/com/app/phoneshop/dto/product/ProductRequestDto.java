@@ -9,6 +9,9 @@ public class ProductRequestDto {
     @NotNull
     private BigDecimal price;
 
+    public ProductRequestDto(String title, BigDecimal price) {
+    }
+
     public String getTitle() {
         return title;
     }

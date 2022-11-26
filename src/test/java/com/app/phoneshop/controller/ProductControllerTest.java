@@ -1,7 +1,9 @@
 package com.app.phoneshop.controller;
 
+import com.app.phoneshop.dto.product.ProductRequestDto;
 import com.app.phoneshop.model.Product;
 import com.app.phoneshop.service.ProductService;
+import io.restassured.http.ContentType;
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
 import org.hamcrest.Matcher;
 import org.junit.jupiter.api.BeforeEach;
@@ -59,4 +61,23 @@ class ProductControllerTest {
                 .body("[2].price", (Matcher<?>) Matchers.equalTo(1399));
     }
 
+    @Test
+    public void shouldCreateProduct() {
+        Product productToSave = new Product();
+        productToSave.setTitle("iPhone 12");
+        productToSave.setPrice(BigDecimal.valueOf(1249));
+        Mockito.when(productService.save(productToSave))
+                .thenReturn(new Product(81L, "iPhone 12", BigDecimal.valueOf(1249)));
+
+        RestAssuredMockMvc.given()
+                .contentType(ContentType.JSON)
+                .body(new ProductRequestDto(productToSave.getTitle(), productToSave.getPrice()))
+                .when()
+                .post("/products")
+                .then()
+                .statusCode(200)
+                .body("id", (Matcher<?>) Matchers.equalTo(81))
+                .body("title", (Matcher<?>) Matchers.equalTo("iPhone 12"))
+                .body("price", (Matcher<?>) Matchers.equalTo(1249));
+    }
 }
